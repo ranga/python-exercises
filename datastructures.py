@@ -1,4 +1,4 @@
-""" solutions to problems in chapter 2: data structures
+"""solutions to problems in chapter 2: data structures
 """
 
 def sum(list):
@@ -143,6 +143,5 @@ def enumerate(list):
 
 
 if __name__ == "__main__":
-       
     import doctest
     doctest.testmod()
