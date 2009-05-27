@@ -149,13 +149,13 @@ def valuesort(d):
     sorted_keys = sorted(d.keys())
     return [d[key] for key in sorted_keys]
 
-def anagrams(l):
+def anagrams(list):
     """a program to find anagrams in a given list of words. Two words are called anagrams if one word can be formed by rearranging letters of another. For example 'eat', 'ate' and 'tea' are anagrams.
     >>> anagrams(['eat', 'ate', 'done', 'tea', 'soup', 'node'])
     [['eat', 'ate', 'tea'], ['done', 'node'], ['soup']]
     """
     anag = []
-    temp = [[item for item in l if sorted(item) == sorted(word)] for word in     l]
+    temp = [[item for item in list if sorted(item) == sorted(word)] for word in list]
     for item in temp:
         if item not in anag:
             anag.append(item)
