@@ -1,4 +1,4 @@
-"""solutions to problems in chapter 2: data structures
+""" solutions to problems in chapter 2: data structures
 """
 
 def sum(list):
@@ -141,7 +141,34 @@ def enumerate(list):
     """
     return[(i,list[i]) for i in range(len(list))]
 
+def valuesort(d):
+    """a function valuesort to sort values of a dictionary based on the key
+    >>> valuesort({'x': 1, 'y': 2, 'a': 3})
+    [3, 1, 2]
+    """
+    sorted_keys = sorted(d.keys())
+    return [d[key] for key in sorted_keys]
 
-if __name__ == "__main__":
+def anagrams(l):
+    """a program to find anagrams in a given list of words. Two words are called anagrams if one word can be formed by rearranging letters of another. For example 'eat', 'ate' and 'tea' are anagrams.
+    >>> anagrams(['eat', 'ate', 'done', 'tea', 'soup', 'node'])
+    [['eat', 'ate', 'tea'], ['done', 'node'], ['soup']]
+    """
+    anag = []
+    temp = [[item for item in l if sorted(item) == sorted(word)] for word in     l]
+    for item in temp:
+        if item not in anag:
+            anag.append(item)
+    return anag    
+
+def invertdict(l):
+    """a function invertdict to interchange keys and values in a dictionary. For simplicity, assume that all values are unique
+    >>> invertdict({'x': 1, 'y': 2, 'z': 3})
+    {1: 'x', 2: 'y', 3: 'z'}
+    """
+    return dict([(v,k) for k,v in l.items()])
+
+
+if __name__ == "__main__":       
     import doctest
     doctest.testmod()
