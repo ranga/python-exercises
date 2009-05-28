@@ -23,7 +23,7 @@ def product(list):
     >>> product([1, 2, 3])
     6
     """
-    prod=1
+    prod = 1
     for i in list:prod = prod * i
     return prod
 
@@ -173,7 +173,7 @@ def extsort(list):
     >>> extsort(['a.c', 'a.py', 'b.py', 'bar.txt', 'foo.txt', 'x.c'])
     ['a.c', 'x.c', 'a.py', 'b.py', 'bar.txt', 'foo.txt']
     """
-    return sorted(list, cmp=lambda x, y: cmp(x.split(".")[1], y.split(".")[1    ]))
+    return sorted(list, cmp = lambda x, y: cmp(x.split(".")[1], y.split(".")[1]))
 
 
 if __name__ == "__main__":       
