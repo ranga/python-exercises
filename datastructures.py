@@ -24,7 +24,8 @@ def product(list):
     6
     """
     prod = 1
-    for i in list:prod = prod * i
+    for i in list:
+        prod = prod * i
     return prod
 
 
@@ -36,8 +37,10 @@ def factorial(num):
     >>> factorial(4)
     24
     """
-    if num == 0:return 1
-    else:return num * factorial(num - 1)
+    if num == 0:
+        return 1
+    else:
+        return num * factorial(num - 1)
 
 
 def reverse(list):
@@ -122,12 +125,12 @@ def myfilter(fun,list):
     """
     return [num for num in list if fun(num)]
 
-def triplets(n):
+def triplets(num):
     """Write a function triplets that takes a number n but not represent same triplet like (a, b, c) and (b, a, c) 
     >>> triplets(5)
     [(1, 1, 2), (1, 2, 3), (1, 3, 4), (2, 2, 4)]
     """
-    return [(i,j,i+j)for i in range(1,n) for j in range(i,n) if i + j < n ]
+    return [(i,j,i+j)for i in range(1,num) for j in range(i,num) if i + j < num ]
 
 def enumerate(list):
     """a function enumerate that takes a list and returns a list of tuples containing (index,item) for each item in the list
@@ -161,12 +164,12 @@ def anagrams(list):
             anag.append(item)
     return anag    
 
-def invertdict(l):
+def invertdict(list):
     """a function invertdict to interchange keys and values in a dictionary. For simplicity, assume that all values are unique
     >>> invertdict({'x': 1, 'y': 2, 'z': 3})
     {1: 'x', 2: 'y', 3: 'z'}
     """
-    return dict([(v,k) for k,v in l.items()])
+    return dict([(v,k) for k,v in list.items()])
 
 def extsort(list):
     """a function extsort to sort a list of files based on extension.
