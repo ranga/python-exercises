@@ -45,8 +45,8 @@ def add(a, b):
     implement a function add to add 2 numbers recursively using the following increment and decrement functions.
     >>> add(10,5)
     15
-    >>> add(10,6)
-    16
+    >>> add(-10,6)
+    -4
     """
     if b == 0:
         return a
@@ -132,8 +132,13 @@ def count_change(amount,coins):
     """
     if amount == 0:
         return 1
+    elif amount < 0 or not coins:
+        return 0
+    else:
+        return count_change(amount, coins[1:]) + count_change(amount-coins[0], coins)
 
-        pass
+
+
 if __name__ == "__main__":
     import doctest
     doctest.testmod()
