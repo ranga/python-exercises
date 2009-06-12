@@ -47,10 +47,20 @@ def add(a, b):
     15
     >>> add(-10,6)
     -4
+    >>> add (2,-3)
+    -1
+    >>> add(-2,-1)
+    -3
+
     """
     if b == 0:
         return a
-    return add(increment(a),decrement(b))
+    if a == 0:
+        return b
+    if a>0 or b<0:
+        return add(decrement(a), increment(b))
+    else:
+        return add(increment(a),decrement(b))
 
 
 def flatten_list(a):

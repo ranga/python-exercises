@@ -106,7 +106,6 @@ def zip(a,b):
     
     """
     return [(a[i], b[i]) for i in range(min(len(a),len(b)))]
-
 def map(fun,list):
     """ an implementation for map using list comprehensions.
     >>> def square(x):
@@ -177,6 +176,45 @@ def extsort(list):
     ['a.c', 'x.c', 'a.py', 'b.py', 'bar.txt', 'foo.txt']
     """
     return sorted(list, cmp = lambda x, y: cmp(x.split(".")[1], y.split(".")[1]))
+
+def array(row, col):
+    """
+    >>> a = array(2, 3)
+    >>> a
+    [[None, None, None], [None, None, None]]
+    >>> a[0][0] = 5
+    >>> a
+    [[5, None, None], [None, None, None]]
+    """
+    return [[none() for i in range(col)] for i in range(row)]
+
+def min(list):
+    """Python has built-in functions min and to compute minimum of a given list
+    >>> min([1,4,3,2])
+    1
+    >>> min(['ba','b','a','ab'])
+    'a'
+    """
+    min = list[0]
+    for n in list[1:]:
+        if min > n:
+            min = n
+        return min
+
+        
+def max(list):
+    """Python has built-in functions max and to compute maximum of a given l    ist
+    >>> max([1,4,3,2])
+    4
+    >>> max(['ba','b','a','ab'])
+    'ba'
+    """
+    max = list[0]
+    for n in list[1:]:
+        if max < n:
+            max = n
+        return max
+
 
 
 if __name__ == "__main__":       
