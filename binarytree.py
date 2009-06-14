@@ -100,13 +100,33 @@ def postorder_traversal(tree):
     >>> a = makenode(1, makenode(2), makenode(3, makenode(4), None))
     >>> postorder_traversal(a)
     [2, 4, 3, 1]
+    >>> a = makenode(1, makenode(2, makenode(4),makenode(5)), makenode(3, makenode(6), makenode(7)))
+    >>> postorder_traversal(a)
+    [4, 5, 2, 6, 7, 3, 1]
     """
     if tree is None:
         return []
     else:
         return postorder_traversal(leftchild(tree)) + \
-        postorder_traversal(rightchild(tree)) + \
-        [getvalue(tree)]
+            postorder_traversal(rightchild(tree)) + \
+            [getvalue(tree)]
+
+def inorder_traversal(tree):
+    """
+    In inorder traversal first it returns left,root and right values
+    >>> a = makenode(1, makenode(2), makenode(3, makenode(4), None))
+    >>> inorder_traversal(a)
+    [2, 1, 4, 3]
+    >>> a = makenode(1, makenode(2, makenode(4),makenode(5)), makenode(3, makenode(6), makenode(7)))
+    >>> inorder_traversal(a)
+    [4, 2, 5, 1, 6, 3, 7]
+    """
+    if tree is None:
+        return []
+    else:
+        return inorder_traversal(leftchild(tree)) + \
+            [getvalue(tree)] + \
+            inorder_traversal(rightchild(tree))
 
 def hight(tree):
     """
