@@ -55,6 +55,9 @@ def leafcount(root):
 
 
 def deepest_node(node):
+    """
+    here lc & rc means left & rightchilds
+    """
     lc = leftchild(node)
     rc = rightchild(node)
     if ((lc and len(lc)) or 0) > ((rc and len(rc)) or 0):
@@ -122,11 +125,30 @@ def inorder_traversal(tree):
     [4, 2, 5, 1, 6, 3, 7]
     """
     if tree is None:
-        return []
+        return [] 
     else:
         return inorder_traversal(leftchild(tree)) + \
             [getvalue(tree)] + \
             inorder_traversal(rightchild(tree))
+
+def inorder_traversal_list(tree):
+    """
+    The above implementation of inorder_traversal is very inefficient because it creates many temporary lists so we improve the performance of that function by appending values to a single list.
+    >>> a = makenode(1, makenode(2), makenode(3, makenode(4), None))
+    >>> inorder_traversal_list(a)
+    [2, 1, 4, 3]
+    >>> a = makenode(1, makenode(2, makenode(4),makenode(5)), makenode(3, makenode(6), makenode(7)))
+    >>> inorder_traversal_list(a)
+    [4, 2, 5, 1, 6, 3, 7]
+    """
+    inorder = []
+    if tree is None:
+        return []
+    else:
+        inorder.extend(inorder_traversal_list(leftchild(tree)))
+        inorder.append(getvalue(tree))
+        inorder.extend(inorder_traversal_list(rightchild(tree)))
+        return inorder
 
 def hight(tree):
     """
@@ -161,6 +183,8 @@ def binary_search_tree(tree, key):
         return binary_search_tree(rightchild(tree), key)
     else:
         return getvalue(tree)
+
+
 
 if __name__ == "__main__":
     import doctest
