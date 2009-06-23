@@ -3,7 +3,7 @@ class Hello(object):
     Demonstrates a basic class and object 
     """
     def nothing(self):
-        print "Inndia is my country"
+        print "India is my country"
 x = Hello()
 x.nothing()
 
@@ -86,6 +86,3 @@ print "Before delete"
 print a
 del a
 print "after delete"
-
-
-
